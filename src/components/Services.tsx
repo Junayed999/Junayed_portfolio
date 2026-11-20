@@ -18,7 +18,7 @@ export default function Services() {
           Clear, focused services — each one delivered with the same care I put into my own products.
         </p>
       </Reveal>
-      <div className="mt-9 grid grid-cols-2 gap-x-4 gap-y-8">
+      <div className="mx-auto mt-9 grid max-w-[780px] grid-cols-2 gap-x-4 gap-y-8">
         {services.map((service, i) => {
           const Icon = icons[service.icon] ?? Globe;
           return (

@@ -6,16 +6,18 @@ export default function About() {
   return (
     <section id="about" className="border-t border-line px-6 py-14 sm:px-10">
       <Reveal>
-        <h2 className="text-[1.4rem] font-bold tracking-tight text-ink">About</h2>
-        <p className="mt-4 text-[0.98rem] leading-relaxed text-muted">
-          I&apos;m Junayed Hossain, a developer, web developer and digital creator. I&apos;m the
-          Co-Founder of JNX, where we build modern websites and digital solutions for businesses and
-          creators.
-        </p>
-        <p className="mt-3 text-[0.98rem] leading-relaxed text-muted">
-          I thrive on transforming ideas into reality — whether it&apos;s crafting a website,
-          designing an interface, or building a web product that feels effortless to use.
-        </p>
+        <div className="max-w-[720px]">
+          <h2 className="text-[1.4rem] font-bold tracking-tight text-ink">About</h2>
+          <p className="mt-4 text-[0.98rem] leading-relaxed text-muted">
+            I&apos;m Junayed Hossain, a developer, web developer and digital creator. I&apos;m the
+            Co-Founder of JNX, where we build modern websites and digital solutions for businesses and
+            creators.
+          </p>
+          <p className="mt-3 text-[0.98rem] leading-relaxed text-muted">
+            I thrive on transforming ideas into reality — whether it&apos;s crafting a website,
+            designing an interface, or building a web product that feels effortless to use.
+          </p>
+        </div>
       </Reveal>
 
       <Reveal delay={120}>

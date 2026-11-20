@@ -14,7 +14,7 @@ import Footer from "@/components/Footer";
  */
 export default function Home() {
   return (
-    <div className="mx-auto min-h-screen w-full max-w-[700px] border-x border-line bg-column">
+    <div className="mx-auto min-h-screen w-full max-w-[1024px] border-x border-line bg-column">
       <Navbar />
       <main>
         <Hero />

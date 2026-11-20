@@ -24,13 +24,14 @@ export default function Contact() {
 
   return (
     <section id="contact" className="border-t border-line px-6 py-14 sm:px-10">
-      <Reveal>
-        <h2 className="text-[1.4rem] font-bold tracking-tight text-ink">Get in touch</h2>
-        <p className="mt-3 text-[0.95rem] leading-relaxed text-muted">
-          Have a project in mind, or just want to say hello? Fill in the form — it opens WhatsApp with
-          your message ready to send.
-        </p>
-      </Reveal>
+      <div className="max-w-[680px]">
+        <Reveal>
+          <h2 className="text-[1.4rem] font-bold tracking-tight text-ink">Get in touch</h2>
+          <p className="mt-3 text-[0.95rem] leading-relaxed text-muted">
+            Have a project in mind, or just want to say hello? Fill in the form — it opens WhatsApp with
+            your message ready to send.
+          </p>
+        </Reveal>
 
       <Reveal delay={110}>
         <form onSubmit={handleSubmit} className="mt-7">
@@ -82,6 +83,7 @@ export default function Contact() {
           </p>
         </form>
       </Reveal>
+      </div>
     </section>
   );
 }

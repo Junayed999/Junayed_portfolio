@@ -14,7 +14,7 @@ export default function Experience() {
         <h2 className="text-[1.4rem] font-bold tracking-tight text-ink">Work Experience</h2>
       </Reveal>
       <Reveal delay={100}>
-        <ul className="mt-6">
+        <ul className="mt-6 max-w-[760px]">
           {experience.map((job) => (
             <li
               key={`${job.role}-${job.company}`}

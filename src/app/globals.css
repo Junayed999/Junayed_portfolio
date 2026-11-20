@@ -77,25 +77,8 @@ body {
   animation-delay: var(--hero-delay, 0ms);
 }
 
-/* Projects slider — continuous right-to-left seamless loop.
-   The track holds two identical copies of the project set; translating
-   exactly -50% lands on the second copy, so the loop has no visible
-   reset, no reversal and no pause. */
-@keyframes projects-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-.projects-track {
-  animation: projects-marquee 38s linear infinite;
-  will-change: transform;
-}
-.projects-slider:hover .projects-track {
-  animation-play-state: paused;
-}
+/* Projects carousel — stepped slides with a smooth transform transition.
+   Auto-advance, hover arrows and swipe are handled in Projects.tsx. */
 
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -107,9 +90,6 @@ body {
     transition: none;
   }
   .hero-rise {
-    animation: none;
-  }
-  .projects-track {
     animation: none;
   }
   *,
