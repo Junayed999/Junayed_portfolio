@@ -1,28 +1,27 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
+import About from "@/components/About";
 import Experience from "@/components/Experience";
-import JnxSection from "@/components/JnxSection";
 import Services from "@/components/Services";
-import Workflow from "@/components/Workflow";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
+/**
+ * Junayed.JS — recreation of the reference portfolio.
+ * Narrow white column on a light grey page, in the reference's section order:
+ * hero, projects slider, about, work experience, services, contact, footer.
+ */
 export default function Home() {
   return (
-    <div className="flex min-h-full flex-col">
+    <div className="mx-auto min-h-screen w-full max-w-[700px] border-x border-line bg-column">
       <Navbar />
-      <main className="flex-1">
+      <main>
         <Hero />
-        <About />
-        <Skills />
         <Projects />
+        <About />
         <Experience />
-        <JnxSection />
         <Services />
-        <Workflow />
         <Contact />
       </main>
       <Footer />

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Sora, Instrument_Serif } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { site } from "@/data/site";
 
@@ -9,30 +9,16 @@ const inter = Inter({
   display: "swap",
 });
 
-const sora = Sora({
-  variable: "--font-sora",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  title: "Junayed.Here — Junayed Hossain",
+  title: "Junayed.JS — Junayed Hossain",
   description: site.description,
   metadataBase: new URL(site.url),
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Junayed.Here — Junayed Hossain",
+    title: "Junayed.JS — Junayed Hossain",
     description: site.description,
     url: site.url,
-    siteName: "Junayed.Here",
+    siteName: "Junayed.JS",
     type: "website",
     images: [
       {
@@ -45,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Junayed.Here — Junayed Hossain",
+    title: "Junayed.JS — Junayed Hossain",
     description: site.description,
     images: ["/portrait.png"],
   },
@@ -54,10 +40,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${sora.variable} ${instrumentSerif.variable} h-full antialiased`}
-    >
+    <html lang="en" className={`${inter.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
   );
