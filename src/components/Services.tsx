@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Reveal from "./Reveal";
 import { services } from "@/data/site";
@@ -7,9 +10,14 @@ import { services } from "@/data/site";
  *  each with two small 62px thumbnails floating tilted (-6° / +8°) and
  *  overlapping at the top, and the label left-aligned at the bottom.
  *  Heading 32px / weight 400, subtitle 16px #5a5a5a, both centred.
- *  Cards rise in with a stagger on scroll; no hover effect on the
- *  template's cards. Thumbnails are the user's own project screenshots. */
+ *  Cards rise in with a stagger on scroll. Hovering a card (or tapping it
+ *  on touch, where there is no hover) spreads its two thumbnails slightly
+ *  apart; they glide back together when the hover/tap ends.
+ *  Thumbnails are the user's own project screenshots. */
 export default function Services() {
+  // Tapped card on touch devices (no hover there): same spread as hover.
+  const [active, setActive] = useState<number | null>(null);
+
   return (
     <section id="services" className="border-t border-line px-6 py-14 sm:px-10">
       <Reveal>
@@ -24,10 +32,15 @@ export default function Services() {
         {services.map((service, i) => (
           <Reveal key={service.title} delay={i * 80}>
             <article
-              className="relative h-[160px] bg-card shadow-[inset_0_3px_0_0_#fff]"
+              className="group relative h-[160px] cursor-pointer bg-card shadow-[inset_0_3px_0_0_#fff]"
               style={{ borderRadius: service.radius }}
+              onClick={() => setActive(active === i ? null : i)}
             >
-              <span className="absolute left-5 top-[18px] block h-[62px] w-[62px] rotate-[-6deg] overflow-hidden rounded-[12px] bg-white shadow-[-3px_5px_13px_0px_rgba(0,0,0,0.1),-13px_20px_24px_0px_rgba(0,0,0,0.09)]">
+              <span
+                className={`absolute left-5 top-[18px] block h-[62px] w-[62px] rotate-[-6deg] overflow-hidden rounded-[12px] bg-white shadow-[-3px_5px_13px_0px_rgba(0,0,0,0.1),-13px_20px_24px_0px_rgba(0,0,0,0.09)] transition-transform duration-500 ease-out group-hover:-translate-x-1.5 group-hover:-translate-y-1 ${
+                  active === i ? "-translate-x-1.5 -translate-y-1" : ""
+                }`}
+              >
                 <Image
                   src={service.images[0]}
                   alt={`${service.title} — example work`}
@@ -36,7 +49,11 @@ export default function Services() {
                   className="object-cover object-top"
                 />
               </span>
-              <span className="absolute left-[51px] top-[30px] block h-[62px] w-[62px] rotate-[8deg] overflow-hidden rounded-[12px] bg-white shadow-[-3px_5px_13px_0px_rgba(0,0,0,0.1),-13px_20px_24px_0px_rgba(0,0,0,0.09)]">
+              <span
+                className={`absolute left-[51px] top-[30px] block h-[62px] w-[62px] rotate-[8deg] overflow-hidden rounded-[12px] bg-white shadow-[-3px_5px_13px_0px_rgba(0,0,0,0.1),-13px_20px_24px_0px_rgba(0,0,0,0.09)] transition-transform duration-500 ease-out group-hover:translate-x-1.5 group-hover:translate-y-1 ${
+                  active === i ? "translate-x-1.5 translate-y-1" : ""
+                }`}
+              >
                 <Image
                   src={service.images[1]}
                   alt={`${service.title} — example work`}

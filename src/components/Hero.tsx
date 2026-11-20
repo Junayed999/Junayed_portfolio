@@ -72,12 +72,6 @@ export default function Hero() {
         className="hero-rise mt-7 flex flex-wrap items-center gap-3"
         style={{ "--hero-delay": "260ms" } as React.CSSProperties}
       >
-        <a
-          href="#contact"
-          className="inline-flex items-center rounded-full bg-ink px-5 py-3 text-[0.92rem] font-semibold text-white transition-transform hover:-translate-y-0.5"
-        >
-          Book a Call
-        </a>
         <span className="inline-flex items-center gap-2 rounded-full bg-pill-green-bg px-4 py-3 text-[0.88rem] font-semibold text-pill-green-text">
           <span className="h-2 w-2 rounded-full bg-green-500 animate-pulse-dot" aria-hidden="true" />
           Available for new project
