@@ -18,7 +18,7 @@ export default function Experience() {
           {experience.map((job) => (
             <li
               key={`${job.role}-${job.company}`}
-              className="flex items-baseline gap-4 border-b border-line py-5 last:border-b-0"
+              className="-mx-3 flex items-baseline gap-4 rounded-xl border-b border-line px-3 py-5 transition-colors last:border-b-0 hover:bg-[#f6f6f6]"
             >
               <span className="w-[104px] shrink-0 pt-0.5 text-[0.83rem] leading-snug text-muted">
                 {job.period}

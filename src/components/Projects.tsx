@@ -27,9 +27,12 @@ export default function Projects() {
     active: false,
   });
 
-  // Card takes 68% of the viewport on desktop, 84% on phones — the rest
-  // is the neighbour peeking in on each side.
-  const cardW = Math.round(viewportW * (viewportW >= 640 ? 0.68 : 0.84));
+  // Template-like sizing: ~430px cards on desktop so several projects
+  // show across the full viewport, 62% on tablets, 84% on phones.
+  const cardW =
+    viewportW >= 1024
+      ? 430
+      : Math.round(viewportW * (viewportW >= 640 ? 0.62 : 0.84));
 
   const measure = useCallback(() => {
     const vp = viewportRef.current;
@@ -108,7 +111,14 @@ export default function Projects() {
     "absolute top-[38%] z-10 hidden h-11 w-11 items-center justify-center rounded-full border border-line bg-white/90 text-ink shadow-[0_10px_24px_-10px_rgba(0,0,0,0.4)] backdrop-blur transition-all hover:bg-white sm:flex [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 focus-visible:opacity-100";
 
   return (
-    <section id="projects" aria-label="Featured projects" className="group relative overflow-hidden pb-16">
+    // Full-bleed like the Simplefolio slider: the section breaks out of the
+    // narrow column to span the whole viewport (no background band — the
+    // page background shows through behind the projects).
+    <section
+      id="projects"
+      aria-label="Featured projects"
+      className="group relative left-1/2 w-screen -translate-x-1/2 overflow-hidden pb-16"
+    >
       <div
         ref={viewportRef}
         className="touch-pan-y select-none overflow-hidden"
@@ -144,13 +154,16 @@ export default function Projects() {
               className="block shrink-0"
               style={{ width: cardW }}
             >
-              <span className="block rounded-[20px] bg-card p-2.5">
-                <span className="relative block aspect-[16/10] overflow-hidden rounded-[14px] bg-white">
+              {/* Template frame: #fafafa, 24px padding, 20px radius, inset
+                  white top highlight; image wrapper 10px radius with a soft
+                  drop shadow. No hover effect on the template's cards. */}
+              <span className="block rounded-[20px] bg-card p-6 shadow-[inset_0_3px_0_0_#fff]">
+                <span className="relative block aspect-[4/3] overflow-hidden rounded-[10px] bg-white shadow-[0_10px_16px_-3px_rgba(0,0,0,0.25)]">
                   <Image
                     src={project.image}
                     alt={`${project.name} — live website screenshot`}
                     fill
-                    sizes="(max-width: 640px) 84vw, 68vw"
+                    sizes="(max-width: 640px) 84vw, 430px"
                     draggable={false}
                     className="object-cover object-top"
                   />

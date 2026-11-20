@@ -24,7 +24,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="border-t border-line px-6 py-14 sm:px-10">
-      <div className="max-w-[680px]">
+      <div className="mx-auto max-w-[680px]">
         <Reveal>
           <h2 className="text-[1.4rem] font-bold tracking-tight text-ink">Get in touch</h2>
           <p className="mt-3 text-[0.95rem] leading-relaxed text-muted">

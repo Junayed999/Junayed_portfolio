@@ -7,7 +7,7 @@
   --color-ink: #111111;
   --color-muted: #6f6f6f;
   --color-line: #e7e7e7;
-  --color-card: #ececec;
+  --color-card: #fafafa;
   --color-pill-green-bg: #d9f2e2;
   --color-pill-green-text: #177245;
 
@@ -49,7 +49,7 @@ body {
 /* Scroll reveal — lightweight, IntersectionObserver driven */
 .reveal {
   opacity: 0;
-  transform: translateY(26px);
+  transform: translateY(60px);
   transition:
     opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
@@ -77,6 +77,55 @@ body {
   animation-delay: var(--hero-delay, 0ms);
 }
 
+/* Hero heading — word by word blur-in, like the Simplefolio hero */
+@keyframes hero-word {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+.hero-word {
+  display: inline-block;
+  animation: hero-word 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* "Meet Who Are Around" — continuous horizontal scroll, two copies of
+   the set so the loop has no visible reset; pauses on hover. */
+@keyframes testimonials-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.testimonials-track {
+  animation: testimonials-marquee 24s linear infinite;
+  will-change: transform;
+}
+.testimonials-fade {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 6%,
+    black 94%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 6%,
+    black 94%,
+    transparent
+  );
+}
+
 /* Projects carousel — stepped slides with a smooth transform transition.
    Auto-advance, hover arrows and swipe are handled in Projects.tsx. */
 
@@ -90,6 +139,12 @@ body {
     transition: none;
   }
   .hero-rise {
+    animation: none;
+  }
+  .hero-word {
+    animation: none;
+  }
+  .testimonials-track {
     animation: none;
   }
   *,

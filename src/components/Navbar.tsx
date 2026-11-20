@@ -10,7 +10,7 @@ export default function Navbar() {
     <div className="sticky top-4 z-50 flex justify-center px-4 pt-4">
       <nav
         aria-label="Main navigation"
-        className="flex items-center gap-0.5 rounded-full border border-line bg-white/90 py-1.5 pl-1.5 pr-1.5 shadow-[0_10px_28px_-12px_rgba(0,0,0,0.35)] backdrop-blur-md"
+        className="flex items-center gap-0.5 rounded-[20px] border border-line bg-white/70 py-1.5 pl-1.5 pr-1.5 shadow-[0_10px_28px_-12px_rgba(0,0,0,0.35)] backdrop-blur-md"
       >
         <a
           href="#home"
